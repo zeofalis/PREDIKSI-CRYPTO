@@ -205,12 +205,124 @@ if "quick_prompt" in st.session_state:
     del st.session_state.quick_prompt
 
 # =====================================
+# FAQ CHATBOT
+# =====================================
+
+faq = {
+
+    "bagaimana cara menggunakan aplikasi":
+        """Langkah penggunaan aplikasi:
+
+1. Login ke aplikasi.
+2. Masuk ke halaman Prediksi Cryptocurrency.
+3. Pilih aset (Bitcoin, Ethereum, atau Solana).
+4. Pilih metode (LSTM, GRU, atau ARIMA).
+5. Klik tombol Prediksi.
+6. Lihat grafik, hasil prediksi, dan evaluasi model.
+""",
+
+    "cara menggunakan aplikasi":
+        """Langkah penggunaan aplikasi:
+
+1. Login.
+2. Pilih menu Prediksi Cryptocurrency.
+3. Pilih aset.
+4. Pilih metode AI.
+5. Jalankan prediksi.
+6. Lihat hasil.
+""",
+
+    "dari mana sumber data":
+        "Dataset historis cryptocurrency pada aplikasi berasal dari Yahoo Finance.",
+
+    "sumber data":
+        "Data historis cryptocurrency diperoleh dari Yahoo Finance.",
+
+    "siapa pengembang":
+        "CRYPZE AI dikembangkan sebagai aplikasi skripsi berbasis Streamlit menggunakan metode LSTM, GRU, dan ARIMA.",
+
+    "apa metode":
+        "Aplikasi menggunakan tiga metode prediksi yaitu LSTM, GRU, dan ARIMA.",
+
+    "metode yang digunakan":
+        "Metode yang digunakan adalah LSTM, GRU, dan ARIMA.",
+
+    "berapa aset":
+        "Aplikasi mendukung tiga aset cryptocurrency yaitu Bitcoin, Ethereum, dan Solana.",
+
+    "apa itu crypze":
+        "CRYPZE AI merupakan aplikasi prediksi cryptocurrency berbasis Artificial Intelligence menggunakan metode LSTM, GRU, dan ARIMA.",
+
+    "fitur aplikasi":
+        """Fitur utama CRYPZE AI:
+
+• Prediksi Cryptocurrency
+• Chatbot AI
+• Dokumentasi & Riwayat
+• Kemitraan
+• Tentang Kami
+""",
+
+    "halaman home":
+        "Halaman Home menampilkan informasi umum aplikasi, market dashboard, dan ringkasan fitur.",
+
+    "prediksi":
+        "Halaman Prediksi digunakan untuk melakukan prediksi harga Bitcoin, Ethereum, dan Solana menggunakan metode LSTM, GRU, atau ARIMA."
+
+}
+
+# =====================================
 # FILTER TOPIC KEYWORDS
 # =====================================
 crypto_keywords = [
-    "bitcoin", "ethereum", "solana", "crypto", "cryptocurrency",
-    "blockchain", "nft", "defi", "trading", "lstm", "gru", "arima",
-    "btc", "eth", "sol"
+
+    # Crypto
+    "bitcoin","btc",
+    "ethereum","eth",
+    "solana","sol",
+    "crypto","cryptocurrency",
+    "blockchain",
+    "nft",
+    "defi",
+
+    # AI
+    "lstm",
+    "gru",
+    "arima",
+    "prediksi",
+    "prediction",
+    "machine learning",
+    "artificial intelligence",
+
+    # Aplikasi
+    "crypze",
+    "aplikasi",
+    "website",
+    "web",
+    "fitur",
+    "dashboard",
+    "chatbot",
+    "login",
+    "logout",
+    "register",
+    "riwayat",
+    "history",
+    "kemitraan",
+
+    # Dataset
+    "yahoo",
+    "finance",
+    "dataset",
+    "data",
+
+    # Penggunaan
+    "cara",
+    "menggunakan",
+    "fungsi",
+    "menu",
+    "halaman",
+    "pengembang"
+
 ]
 
 # =====================================
@@ -221,64 +333,91 @@ if prompt:
         st.error("❌ API Key Groq belum dikonfigurasi dengan benar di `st.secrets`.")
         st.stop()
 
-    # VALIDASI TOPIK
-    if not any(keyword in prompt.lower() for keyword in crypto_keywords):
-        reply = "⚠️ Maaf, saya hanya dapat menjawab topik seputar cryptocurrency, blockchain, dan model AI terkait prediksi pasar."
-        
-        st.session_state.messages.append({"role": "user", "content": prompt})
-        st.session_state.messages.append({"role": "assistant", "content": reply})
-        st.rerun()
+    lower = prompt.lower()
 
-    # SAVE USER MESSAGE
-    st.session_state.messages.append({"role": "user", "content": prompt})
-    with st.chat_message("user", avatar="🧑"):
-        st.write(prompt)
+reply = None
 
-    # =====================================
-    # AI RESPONSE VIA GROQ (DENGAN FALLBACK)
-    # =====================================
-    with st.chat_message("assistant", avatar="🤖"):
-        with st.spinner("🤖 Crypze AI sedang menyusun jawaban..."):
-            try:
-                completion = client.chat.completions.create(
-                    model="llama-3.1-8b-instant",
-                    messages=[
-                        {
-                            "role": "system",
-                            "content": """
+# ===========================
+# FAQ
+# ===========================
+for key, value in faq.items():
+    if key in lower:
+        reply = value
+        break
+
+# ===========================
+# Simpan pesan user
+# ===========================
+st.session_state.messages.append(
+    {
+        "role": "user",
+        "content": prompt
+    }
+)
+
+with st.chat_message("user", avatar="🧑"):
+    st.write(prompt)
+
+# ===========================
+# Jika FAQ tidak menemukan jawaban,
+# baru gunakan GROQ
+# ===========================
+if reply is None:
+
+    try:
+
+        completion = client.chat.completions.create(
+
+            model="llama-3.1-8b-instant",
+
+            messages=[
+                {
+                    "role":"system",
+                    "content":"""
 Kamu adalah Crypze AI Assistant.
-Tugas:
-- Hanya menjawab tentang cryptocurrency, blockchain, dan model AI prediksi (LSTM, GRU, ARIMA).
-- Jawab dengan singkat, padat, jelas, profesional, dan mudah dipahami.
+
+Kamu adalah chatbot resmi aplikasi CRYPZE AI.
+
+Jawab hanya mengenai:
+
+• penggunaan aplikasi
+• dashboard
+• login
+• register
+• prediksi cryptocurrency
+• Bitcoin
+• Ethereum
+• Solana
+• LSTM
+• GRU
+• ARIMA
+• Yahoo Finance
+• Blockchain
+• NFT
+• DeFi
+
+Jika pertanyaan di luar topik tersebut,
+jawab dengan sopan bahwa pertanyaan berada di luar ruang lingkup aplikasi.
 """
-                        },
-                        {
-                            "role": "user",
-                            "content": prompt
-                        }
-                    ],
-                    timeout=10
-                )
-                reply = completion.choices[0].message.content
-            except Exception as e:
-                # Fallback aman jika API Groq gangguan atau kuota habis
-                reply = "⚠️ **Peringatan Sistem:** Gagal terhubung ke server AI Groq saat ini. Silakan periksa koneksi internet Anda atau coba beberapa saat lagi."
+                },
+                {
+                    "role":"user",
+                    "content":prompt
+                }
+            ],
 
-        # =====================================
-        # STREAM EFFECT
-        # =====================================
-        placeholder = st.empty()
-        full_text = ""
+            temperature=0.3,
+            max_tokens=350
 
-        for word in reply.split():
-            full_text += word + " "
-            time.sleep(0.015)
-            placeholder.markdown(full_text + "▌")
+        )
 
-        placeholder.markdown(full_text)
+        reply = completion.choices[0].message.content
 
-    # SAVE AI RESPONSE
-    st.session_state.messages.append({"role": "assistant", "content": reply})
+    except Exception:
+
+        reply = "⚠️ Maaf, server AI sedang tidak dapat dihubungi."
+
+    
 
 # =====================================
 # FOOTER
