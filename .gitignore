@@ -5,14 +5,8 @@ __pycache__/
 *.pyc
 
 .streamlit/secrets.toml
-
 .env
 
 .ipynb_checkpoints/
-
-*.h5
-*.keras
-
-models/
 
 .DS_Store
