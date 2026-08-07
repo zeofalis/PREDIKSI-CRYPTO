@@ -109,14 +109,7 @@ with st.sidebar:
     st.divider()
 
     st.caption("Version 3.0 • Universitas Gunadarma")
-
-    st.markdown("### 📂 Menu Utama")
-    st.page_link("Home.py", label="🏠 Home")
-    st.page_link("pages/1_Prediksi_Bitcoin.py", label="📈 Prediksi Bitcoin")
-    st.page_link("pages/kemitraan.py", label="🤝 Kemitraan")
-    st.page_link("pages/dokumentasi.py", label="📖 Dokumentasi dan Riwayat")
-    st.page_link("pages/tentang_kami.py", label="👥 Tentang Kami")
-    st.page_link("pages/chatbot.py", label="🤖 chatbot")
+    
     st.divider()
 
     quick_questions = [
