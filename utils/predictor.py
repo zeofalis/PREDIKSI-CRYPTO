@@ -3,28 +3,34 @@ import numpy as np
 from tensorflow.keras.models import load_model
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.initializers import Orthogonal
-from statsmodels.tsa.arima.model import ARIMA
+
 
 def custom_dense(**kwargs):
     kwargs.pop("quantization_config", None)
     return Dense(**kwargs)
+
 
 def load_dl_model(model_path):
 
     model = load_model(
         model_path,
         custom_objects={
-            "Dense": custom_dense
+            "Dense": custom_dense,
+            "Orthogonal": Orthogonal,
         },
-        compile=False
+        compile=False,
     )
 
     return model
 
+
 # =========================================
 # ARIMA
 # =========================================
+
 def predict_arima(close_data):
+
+    from statsmodels.tsa.arima.model import ARIMA
 
     train_size_arima = int(len(close_data) * 0.8)
 
@@ -50,6 +56,7 @@ def predict_arima(close_data):
 
     return y_pred_inv, y_test_inv, future_close
 
+
 def predict_dl(model, X_test, y_test, scaler):
 
     y_pred = model.predict(
@@ -58,44 +65,35 @@ def predict_dl(model, X_test, y_test, scaler):
     )
 
     y_pred_inv = scaler.inverse_transform(
-
         np.concatenate(
-
             (
                 np.zeros((len(y_pred), 3)),
                 y_pred,
                 np.zeros((len(y_pred), 1))
             ),
-
             axis=1
-
         )
-
     )[:, 3]
 
     y_test_inv = scaler.inverse_transform(
-
         np.concatenate(
-
             (
                 np.zeros((len(y_test), 3)),
                 y_test.reshape(-1, 1),
                 np.zeros((len(y_test), 1))
             ),
-
             axis=1
-
         )
-
     )[:, 3]
 
     return y_pred_inv, y_test_inv
 
+
 def forecast_future(model, scaled_data, seq_length, scaler):
+
     n_future = 5
 
     last_seq = scaled_data[-seq_length:]
-
     last_seq = last_seq.reshape(
         (1, seq_length, scaled_data.shape[1])
     )
@@ -125,24 +123,14 @@ def forecast_future(model, scaled_data, seq_length, scaler):
         last_seq[0, -1, :] = new_step
 
     future_close = scaler.inverse_transform(
-
         np.concatenate(
-
             (
                 np.zeros((n_future, 3)),
-
-                np.array(
-                    future_preds_scaled
-                )[:, 0:1],
-
+                np.array(future_preds_scaled)[:, 0:1],
                 np.zeros((n_future, 1))
-
             ),
-
             axis=1
-
         )
-
     )[:, 3]
 
     return future_close
