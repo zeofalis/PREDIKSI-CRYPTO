@@ -39,18 +39,27 @@ except Exception:
     client = None
 
 # =====================================
-# CUSTOM CSS (DISELARASKAN DENGAN HALAMAN LAIN)
+# CUSTOM CSS (UI DIPERCANTIK DENGAN GLASSMORPHISM)
 # =====================================
 
 st.markdown("""
 <style>
 
 .stApp{
-    background:#07111e;
+    background: radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(34, 197, 94, 0.08) 0%, transparent 40%),
+                #07111e;
+    color: #f8fafc;
 }
 
 header, footer, #MainMenu { visibility: hidden; }
 [data-testid="collapsedControl"] { visibility: visible !important; display: block !important; }
+
+/* SIDEBAR STYLING */
+section[data-testid="stSidebar"] {
+    background: #0b132b;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
 
 .main-title{
     text-align:center;
@@ -67,6 +76,52 @@ header, footer, #MainMenu { visibility: hidden; }
     color:#9ca3af;
     font-size:16px;
     margin-bottom:25px;
+}
+
+/* CHAT MESSAGE CONTAINERS (GLASSMORPHISM) */
+[data-testid="stChatMessage"] {
+    background: rgba(17, 24, 39, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    margin-bottom: 12px;
+}
+
+/* KARTU WELCOME INFO */
+.stInfo {
+    background-color: rgba(17, 24, 39, 0.8) !important;
+    border: 1px solid rgba(56, 189, 248, 0.2) !important;
+    border-radius: 16px !important;
+    color: #e2e8f0 !important;
+    backdrop-filter: blur(10px);
+}
+
+/* TOMBOL UTAMA */
+.stButton>button {
+    width: 100%;
+    background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 16px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+    transition: all 0.3s ease;
+}
+
+.stButton>button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.5);
+    background: linear-gradient(135deg, #1d4ed8 0%, #0284c7 100%);
+}
+
+/* SELECTBOX & INPUT STYLING */
+.stSelectbox div[data-baseweb="select"] {
+    background-color: rgba(17, 24, 39, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 12px !important;
+    color: white !important;
 }
 
 </style>
@@ -90,9 +145,6 @@ st.markdown(
 # SIDEBAR
 # =====================================
 
-# ==========================
-# SIDEBAR (TANPA LOGO CRYPZE)
-# ==========================
 with st.sidebar:
     st.success("🟢 System Online")
     st.divider()
@@ -102,7 +154,7 @@ with st.sidebar:
     st.metric("⚡ Status", "Realtime")
     st.divider()
 
-    st.write("### 📂 Menu Utama")
+    st.markdown("### 📂 Menu Utama")
     st.page_link("Home.py", label="🏠 Home Dashboard")
     st.page_link("pages/1_Prediksi_Bitcoin.py", label="📈 AI Prediction")
     st.page_link("pages/2_chatbot.py", label="🤖 AI Assistant")
@@ -160,7 +212,7 @@ if len(st.session_state.messages)==0:
 
     st.info(
 """
-👋 Selamat datang di CRYPZE AI Assistant.
+👋 **Selamat datang di CRYPZE AI Assistant.**
 
 Anda dapat bertanya mengenai:
 
