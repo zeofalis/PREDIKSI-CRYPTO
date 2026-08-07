@@ -105,11 +105,11 @@ with st.sidebar:
     st.write("### 📂 Menu Utama")
     st.page_link("Home.py", label="🏠 Home Dashboard")
     st.page_link("pages/1_Prediksi_Bitcoin.py", label="📈 AI Prediction")
-    st.page_link("pages/chatbot.py", label="🤖 AI Assistant")
+    st.page_link("pages/2_chatbot.py", label="🤖 AI Assistant")
     st.divider()
 
     st.caption("Version 3.0 • Universitas Gunadarma")
-    
+
     st.divider()
 
     quick_questions = [
