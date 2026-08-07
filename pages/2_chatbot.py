@@ -159,18 +159,15 @@ with st.sidebar:
     st.divider()
 
     quick_questions = [
-
-        "Apa itu Bitcoin?",
-        "Apa itu Ethereum?",
-        "Apa itu Solana?",
-        "Apa itu LSTM?",
-        "Apa itu GRU?",
-        "Apa itu ARIMA?",
-        "Bagaimana cara menggunakan aplikasi?",
-        "Dari mana sumber data aplikasi?",
-        "Apa metode yang digunakan?",
-        "Siapa pengembang aplikasi?"
-
+    "Apa itu Bitcoin?",
+    "Apa itu Ethereum?",
+    "Apa itu Solana?",
+    "Apa itu Blockchain?",
+    "Apa itu NFT?",
+    "Apa itu DeFi?",
+    "Apa itu LSTM?",
+    "Apa itu GRU?",
+    "Apa itu ARIMA?"
     ]
 
     selected = st.selectbox(
@@ -267,128 +264,128 @@ if "quick_prompt" in st.session_state:
 # FAQ KNOWLEDGE BASE
 # =====================================
 
-faq = {
+faq_keywords = {
 
-# =================================================
-# PENGGUNAAN APLIKASI
-# =================================================
+    "cara menggunakan aplikasi": [
+        "cara menggunakan",
+        "menggunakan aplikasi",
+        "cara pakai",
+        "pakai aplikasi",
+        "tutorial",
+        "langkah penggunaan",
+        "mengoperasikan aplikasi"
+    ],
 
-"bagaimana cara menggunakan aplikasi":
-"""Langkah penggunaan aplikasi:
+    "login": [
+        "login",
+        "masuk akun",
+        "signin"
+    ],
 
-1. Login ke aplikasi.
-2. Pilih menu Prediksi Cryptocurrency.
-3. Pilih aset cryptocurrency (Bitcoin, Ethereum, atau Solana).
-4. Pilih metode prediksi (LSTM, GRU, atau ARIMA).
-5. Klik tombol Prediksi.
-6. Sistem akan menampilkan grafik, evaluasi model, dan hasil prediksi harga.
-""",
+    "register": [
+        "register",
+        "daftar akun",
+        "buat akun"
+    ],
 
-"cara menggunakan aplikasi":
-"""Langkah penggunaan aplikasi:
+    "prediksi": [
+        "prediksi",
+        "melakukan prediksi",
+        "cara prediksi",
+        "prediksi harga"
+    ],
 
-1. Login.
-2. Pilih menu Prediksi Cryptocurrency.
-3. Pilih aset.
-4. Pilih metode.
-5. Klik Prediksi.
-6. Lihat hasil prediksi.
-""",
+    "dataset": [
+        "dataset",
+        "upload dataset",
+        "unggah dataset",
+        "memasukkan dataset",
+        "dataset pribadi",
+        "data historis"
+    ],
 
-"bagaimana cara melakukan prediksi harga":
-"""Untuk melakukan prediksi harga:
+    "grafik": [
+        "grafik",
+        "chart",
+        "visualisasi",
+        "membaca grafik"
+    ],
 
-1. Masuk ke menu Prediksi Cryptocurrency.
-2. Pilih aset cryptocurrency.
-3. Pilih metode prediksi (LSTM, GRU, atau ARIMA).
-4. Tekan tombol Prediksi.
-5. Sistem akan memproses data dan menampilkan grafik beserta hasil prediksi harga.
-""",
+    "hasil prediksi": [
+        "hasil prediksi",
+        "hasil model",
+        "akurasi"
+    ],
 
-"cara melakukan prediksi":
-"""Masuk ke menu Prediksi Cryptocurrency, pilih aset, pilih metode, kemudian klik tombol Prediksi.""" ,
+    "home": [
+        "home",
+        "halaman utama"
+    ],
 
-# =================================================
-# SUMBER DATA
-# =================================================
+    "dokumentasi": [
+        "dokumentasi",
+        "manual"
+    ],
 
-"dari mana sumber data aplikasi":
-"Data historis cryptocurrency pada aplikasi berasal dari Yahoo Finance.",
+    "riwayat": [
+        "riwayat",
+        "history"
+    ],
 
-"sumber data":
-"Dataset historis cryptocurrency diperoleh dari Yahoo Finance.",
+    "kemitraan": [
+        "kemitraan",
+        "kerjasama"
+    ],
 
-"yahoo finance":
-"Yahoo Finance digunakan sebagai sumber data historis cryptocurrency pada aplikasi.",
+    "tentang": [
+        "tentang",
+        "tentang kami"
+    ],
 
-# =================================================
-# METODE
-# =================================================
+    "yahoo": [
+        "yahoo",
+        "sumber data",
+        "asal data"
+    ],
 
-"apa metode yang digunakan":
-"Aplikasi menggunakan tiga metode prediksi yaitu LSTM, GRU, dan ARIMA.",
+    "bitcoin": [
+        "bitcoin",
+        "btc"
+    ],
 
-"metode":
-"Metode prediksi yang tersedia yaitu LSTM, GRU, dan ARIMA.",
+    "ethereum": [
+        "ethereum",
+        "eth"
+    ],
 
-"lstm":
-"LSTM merupakan algoritma Deep Learning yang mampu mempelajari pola data time series jangka panjang.",
+    "solana": [
+        "solana",
+        "sol"
+    ],
 
-"gru":
-"GRU merupakan pengembangan dari Recurrent Neural Network (RNN) yang lebih sederhana dibandingkan LSTM.",
+    "lstm": [
+        "lstm"
+    ],
 
-"arima":
-"ARIMA merupakan metode statistik untuk melakukan prediksi berdasarkan data historis time series.",
+    "gru": [
+        "gru"
+    ],
 
-# =================================================
-# ASET
-# =================================================
+    "arima": [
+        "arima"
+    ],
 
-"bitcoin":
-"Bitcoin merupakan cryptocurrency pertama yang menggunakan teknologi blockchain.",
+    "blockchain": [
+        "blockchain"
+    ],
 
-"ethereum":
-"Ethereum merupakan platform blockchain yang mendukung Smart Contract.",
+    "nft": [
+        "nft"
+    ],
 
-"solana":
-"Solana merupakan blockchain dengan kecepatan transaksi tinggi dan biaya rendah.",
-
-"aset":
-"Aplikasi mendukung tiga aset cryptocurrency yaitu Bitcoin (BTC), Ethereum (ETH), dan Solana (SOL).",
-
-# =================================================
-# PENGEMBANG
-# =================================================
-
-"siapa pengembang aplikasi":
-"CRYPZE AI dikembangkan sebagai aplikasi skripsi berbasis Streamlit untuk melakukan prediksi cryptocurrency menggunakan metode LSTM, GRU, dan ARIMA.",
-
-"pengembang":
-"CRYPZE AI merupakan aplikasi skripsi yang dikembangkan menggunakan Python dan Streamlit.",
-
-# =================================================
-# MENU
-# =================================================
-
-"fitur":
-"""Menu pada aplikasi terdiri dari:
-
-• Home
-• Prediksi Cryptocurrency
-• Chatbot AI
-• Dokumentasi dan Riwayat
-• Kemitraan
-• Tentang Kami
-""",
-
-"dashboard":
-"Dashboard menampilkan informasi market cryptocurrency secara realtime.",
-
-"chatbot":
-"Chatbot menggunakan model Llama 3.1 melalui API Groq.",
-
-"prediksi":
-"Menu Prediksi digunakan untuk melakukan prediksi harga Bitcoin, Ethereum, dan Solana menggunakan metode LSTM, GRU, atau ARIMA."
+    "defi": [
+        "defi"
+    ]
 }
 
 # =====================================
@@ -409,9 +406,12 @@ if prompt:
     # FAQ
     # ===========================
 
-    for key, value in faq.items():
-        if key in lower:
-            reply = value
+    for faq_key, keywords in faq_keywords.items():
+
+        if any(keyword in lower for keyword in keywords):
+        
+            reply = faq[faq_key]
+
             break
 
     # ===========================
@@ -464,61 +464,278 @@ if prompt:
                 messages=[
 
                     {
-                        "role":"system",
-
-                        "content":"""
+                        {
+    "role": "system",
+    "content": """
 Kamu adalah CRYPZE AI Assistant.
 
-CRYPZE AI adalah aplikasi berbasis Streamlit untuk melakukan prediksi harga cryptocurrency.
+CRYPZE AI merupakan aplikasi berbasis web menggunakan Python dan Streamlit
+yang dikembangkan sebagai aplikasi skripsi untuk melakukan prediksi harga
+cryptocurrency menggunakan Artificial Intelligence.
 
-Fitur aplikasi:
+====================================================
+IDENTITAS APLIKASI
+====================================================
 
-1. Dashboard
+Nama aplikasi :
+CRYPZE AI
+
+Framework :
+Streamlit
+
+Bahasa Pemrograman :
+Python
+
+Metode Prediksi :
+- LSTM
+- GRU
+- ARIMA
+
+Cryptocurrency :
+- Bitcoin (BTC)
+- Ethereum (ETH)
+- Solana (SOL)
+
+Sumber Dataset :
+Yahoo Finance
+
+====================================================
+FITUR APLIKASI
+====================================================
+
+Aplikasi memiliki beberapa halaman:
+
+1. Home
+Menampilkan dashboard utama aplikasi,
+harga cryptocurrency secara realtime,
+informasi singkat aplikasi,
+serta menu navigasi.
+
 2. Prediksi Cryptocurrency
+Digunakan untuk melakukan prediksi harga cryptocurrency.
+
+Pengguna dapat:
+
+- memilih aset
+- memilih metode
+- menjalankan prediksi
+- melihat grafik
+- melihat evaluasi model
+- melihat prediksi 5 hari ke depan
+
 3. Chatbot AI
-4. Dokumentasi
-5. Riwayat Prediksi
-6. Kemitraan
-7. Tentang Kami
+Memberikan informasi mengenai:
 
-Cryptocurrency yang didukung:
+- aplikasi
+- cryptocurrency
+- blockchain
+- NFT
+- DeFi
+- LSTM
+- GRU
+- ARIMA
+- penggunaan aplikasi
 
-• Bitcoin (BTC)
-• Ethereum (ETH)
-• Solana (SOL)
+4. Dokumentasi dan Riwayat
 
-Metode:
+Berfungsi untuk:
 
-• LSTM
-• GRU
-• ARIMA
+- melihat riwayat prediksi
+- melihat dokumentasi aplikasi
+- menyimpan hasil prediksi
 
-Dataset:
+5. Kemitraan
 
-• Yahoo Finance
+Berisi informasi kerja sama
+dan kolaborasi aplikasi.
 
-Tugasmu:
+6. Tentang Kami
 
-1. Menjelaskan penggunaan aplikasi.
-2. Menjelaskan fitur aplikasi.
-3. Menjelaskan cryptocurrency.
-4. Menjelaskan LSTM, GRU, ARIMA.
-5. Menjelaskan blockchain.
-6. Menjelaskan NFT.
-7. Menjelaskan DeFi.
-8. Menjawab pertanyaan mengenai aplikasi.
+Berisi informasi mengenai
+pengembang aplikasi.
 
-Jika pertanyaan di luar ruang lingkup aplikasi,
-jawablah:
+====================================================
+ALUR PENGGUNAAN APLIKASI
+====================================================
 
-"Maaf, saya hanya dapat membantu mengenai aplikasi CRYPZE AI, cryptocurrency, blockchain, serta metode prediksi LSTM, GRU, dan ARIMA."
+Langkah menggunakan aplikasi:
 
-Jawablah menggunakan Bahasa Indonesia.
+1.
+Login menggunakan username dan password.
+
+2.
+Masuk ke halaman Prediksi Cryptocurrency.
+
+3.
+Pilih cryptocurrency:
+
+- Bitcoin
+- Ethereum
+- Solana
+
+4.
+Pilih metode prediksi:
+
+- LSTM
+- GRU
+- ARIMA
+
+5.
+Tekan tombol Prediksi.
+
+6.
+Sistem akan memproses data.
+
+7.
+Sistem menampilkan:
+
+- grafik historis
+- grafik prediksi
+- evaluasi model
+- prediksi 5 hari ke depan
+
+====================================================
+METODE
+====================================================
+
+LSTM
+
+Merupakan algoritma Deep Learning
+yang mampu mempelajari pola data time series
+dengan mengingat informasi jangka panjang.
+
+GRU
+
+Merupakan pengembangan dari RNN
+yang lebih ringan dibanding LSTM
+namun tetap efektif untuk prediksi time series.
+
+ARIMA
+
+Merupakan metode statistik
+yang digunakan untuk memodelkan
+dan memprediksi data time series.
+
+====================================================
+SUMBER DATA
+====================================================
+
+Data historis cryptocurrency
+berasal dari Yahoo Finance.
+
+Data meliputi:
+
+- Open
+- High
+- Low
+- Close
+- Volume
+
+====================================================
+FUNGSI GRAFIK
+====================================================
+
+Grafik digunakan untuk:
+
+- melihat tren harga
+- membandingkan hasil prediksi
+- melihat data historis
+- melihat prediksi beberapa hari ke depan
+
+====================================================
+PERTANYAAN YANG HARUS DIJAWAB
+====================================================
+
+Jika pengguna bertanya:
+
+Bagaimana menggunakan aplikasi?
+
+Jawab langkah penggunaan aplikasi.
+
+Jika pengguna bertanya:
+
+Bagaimana melakukan prediksi?
+
+Jelaskan proses memilih aset,
+memilih metode,
+kemudian menjalankan prediksi.
+
+Jika pengguna bertanya:
+
+Bagaimana membaca grafik?
+
+Jelaskan bahwa grafik menampilkan
+data historis dan hasil prediksi
+sehingga pengguna dapat melihat tren harga.
+
+Jika pengguna bertanya:
+
+Bagaimana memasukkan dataset pribadi?
+
+Jawab bahwa saat ini aplikasi menggunakan
+dataset historis dari Yahoo Finance
+dan belum menyediakan fitur upload dataset pribadi.
+
+Jika pengguna bertanya:
+
+Apa metode yang digunakan?
+
+Jawab:
+
+LSTM,
+GRU,
+dan ARIMA.
+
+Jika pengguna bertanya:
+
+Mengapa menggunakan Yahoo Finance?
+
+Jawab bahwa Yahoo Finance menyediakan
+data historis cryptocurrency
+yang lengkap dan mudah diperoleh
+untuk proses pelatihan model.
+
+Jika pengguna bertanya:
+
+Siapa pengembang aplikasi?
+
+Jawab:
+
+CRYPZE AI dikembangkan sebagai
+aplikasi skripsi berbasis Streamlit
+untuk prediksi cryptocurrency
+menggunakan metode LSTM, GRU, dan ARIMA.
+
+====================================================
+ATURAN CHATBOT
+====================================================
+
+Jawab menggunakan Bahasa Indonesia.
 
 Jawaban maksimal 180 kata.
 
-Gunakan format yang rapi.
+Gunakan bahasa formal namun mudah dipahami.
+
+Jangan mengarang informasi.
+
+Jika pertanyaan berada di luar ruang lingkup:
+
+- aplikasi
+- cryptocurrency
+- blockchain
+- NFT
+- DeFi
+- AI
+- LSTM
+- GRU
+- ARIMA
+
+Jawab:
+
+"Maaf, saya hanya dapat membantu mengenai aplikasi CRYPZE AI, cryptocurrency, blockchain, serta metode prediksi LSTM, GRU, dan ARIMA."
+
 """
+}
                     },
 
                     {
