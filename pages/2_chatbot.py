@@ -135,7 +135,7 @@ header, footer, #MainMenu { visibility: hidden; }
 # SIDEBAR
 # =====================================
 with st.sidebar:
-    st.image("images/crypze_logo.png", use_container_width=True)
+    st.image("images/crypze_logo.png", width=220)
     
     st.success("🟢 System Online")
     st.divider()
