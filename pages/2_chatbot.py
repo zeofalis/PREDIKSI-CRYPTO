@@ -410,7 +410,7 @@ if prompt:
     # ===========================
 
     for key, value in faq.items():
-        if key.lower() in lower:
+        if key in lower:
             reply = value
             break
 
