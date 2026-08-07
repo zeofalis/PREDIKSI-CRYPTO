@@ -443,7 +443,6 @@ if prompt:
             "pengembang","yahoo",
             "menu","fitur"
         ]
-
     if not any(x in lower for x in allowed):
         reply = (
             "Maaf, saya hanya dapat membantu mengenai aplikasi CRYPZE AI, "
