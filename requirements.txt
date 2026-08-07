@@ -13,4 +13,5 @@ plotly==5.24.1
 requests==2.32.3
 bcrypt==4.2.0
 
-groq==0.11.0
+groq==0.9.0
+httpx==0.27.2
