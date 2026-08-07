@@ -2,8 +2,9 @@ streamlit
 pandas
 numpy
 scikit-learn
-tensorflow
-keras
+tensorflow==2.16.1
+keras==3.3.3
 plotly
 requests
-bcrypt==4.2.0
+bcrypt
+statsmodels==0.14.2
