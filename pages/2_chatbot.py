@@ -375,7 +375,19 @@ Pengguna dapat membandingkan hasil evaluasi masing-masing metode sebelum menentu
 
 "riwayat prediksi":
 """Riwayat prediksi digunakan untuk menyimpan hasil prediksi yang telah dilakukan sehingga pengguna dapat melihat kembali hasil sebelumnya.""",
+"metode":
+"""Aplikasi CRYPZE AI menyediakan tiga metode prediksi yaitu:
 
+1. LSTM (Long Short-Term Memory)
+2. GRU (Gated Recurrent Unit)
+3. ARIMA (AutoRegressive Integrated Moving Average)
+
+Ketiga metode tersebut dapat dipilih oleh pengguna untuk melakukan prediksi harga cryptocurrency dan membandingkan performanya.""",
+"algoritma":
+"""Aplikasi menggunakan tiga metode prediksi yaitu LSTM, GRU, dan ARIMA.""",
+
+"model":
+"""Model yang tersedia pada aplikasi ini adalah LSTM, GRU, dan ARIMA.""",
 }
 
 # =====================================
@@ -483,7 +495,14 @@ if prompt:
 
 "aplikasi",
 
-"yahoo"
+"yahoo",
+
+"metode",
+"digunakan",
+"berapa",
+"jumlah",
+"algoritma",
+"model"
 
 ]
 
