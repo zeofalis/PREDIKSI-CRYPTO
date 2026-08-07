@@ -350,7 +350,32 @@ faq = {
 """NFT (Non-Fungible Token) merupakan aset digital unik yang kepemilikannya dicatat menggunakan teknologi blockchain sehingga tidak dapat dipertukarkan secara identik.""",
 
 "defi":
-"""DeFi (Decentralized Finance) merupakan layanan keuangan berbasis blockchain yang memungkinkan transaksi dilakukan tanpa perantara seperti bank."""
+"""DeFi (Decentralized Finance) merupakan layanan keuangan berbasis blockchain yang memungkinkan transaksi dilakukan tanpa perantara seperti bank.""",
+"membaca grafik":
+"""Grafik digunakan untuk menampilkan perubahan harga cryptocurrency berdasarkan data historis serta hasil prediksi.
+
+Sumbu horizontal menunjukkan waktu.
+
+Sumbu vertikal menunjukkan harga cryptocurrency.
+
+Grafik membantu pengguna melihat tren harga dan membandingkan hasil prediksi.""",
+
+"upload dataset":
+"""Saat ini aplikasi menggunakan dataset historis dari Yahoo Finance.
+
+Versi aplikasi ini belum menyediakan fitur upload dataset pribadi.""",
+
+"metode terbaik":
+"""Aplikasi menyediakan tiga metode yaitu LSTM, GRU, dan ARIMA.
+
+Pengguna dapat membandingkan hasil evaluasi masing-masing metode sebelum menentukan metode terbaik.""",
+
+"dashboard":
+"""Dashboard merupakan halaman utama aplikasi yang menampilkan informasi singkat mengenai aplikasi serta akses menuju seluruh fitur.""",
+
+"riwayat prediksi":
+"""Riwayat prediksi digunakan untuk menyimpan hasil prediksi yang telah dilakukan sehingga pengguna dapat melihat kembali hasil sebelumnya.""",
+
 }
 
 # =====================================
@@ -372,7 +397,14 @@ if prompt:
     # ===========================
 
     for key, value in faq.items():
-        if key in lower:
+
+        keywords = [
+            key,
+            key.replace("cara ", ""),
+            key.replace(" aplikasi", "")
+        ]
+
+        if any(k in lower for k in keywords):
             reply = value
             break
 
@@ -396,15 +428,64 @@ if prompt:
     if reply is None:
 
         allowed = [
-            "bitcoin","ethereum","solana",
-            "crypto","cryptocurrency",
-            "blockchain","nft","defi",
-            "lstm","gru","arima",
-            "prediksi","aplikasi",
-            "dashboard","chatbot",
-            "pengembang","yahoo",
-            "menu","fitur"
-        ]
+
+"bitcoin","btc",
+
+"ethereum","eth",
+
+"solana","sol",
+
+"crypto","cryptocurrency",
+
+"blockchain",
+
+"nft",
+
+"defi",
+
+"lstm",
+
+"gru",
+
+"arima",
+
+"grafik",
+
+"chart",
+
+"dataset",
+
+"csv",
+
+"prediksi",
+
+"dashboard",
+
+"menu",
+
+"home",
+
+"login",
+
+"register",
+
+"riwayat",
+
+"dokumentasi",
+
+"kemitraan",
+
+"tentang",
+
+"fitur",
+
+"chatbot",
+
+"aplikasi",
+
+"yahoo"
+
+]
 
         if not any(x in lower for x in allowed):
             reply = (
@@ -469,6 +550,15 @@ Tugasmu:
 6. Menjelaskan NFT.
 7. Menjelaskan DeFi.
 8. Menjawab pertanyaan mengenai aplikasi.
+9. Menjelaskan cara membaca grafik.
+10. Menjelaskan cara menggunakan aplikasi.
+11. Menjelaskan sumber dataset.
+12. Menjelaskan fungsi Dashboard.
+13. Menjelaskan fungsi Dokumentasi.
+14. Menjelaskan Riwayat Prediksi.
+15. Menjelaskan cara memilih metode.
+16. Menjelaskan kelebihan LSTM dibanding GRU.
+17. Menjelaskan perbedaan ARIMA dan Deep Learning.
 
 Jika pertanyaan di luar ruang lingkup aplikasi,
 jawablah:
@@ -490,8 +580,8 @@ Gunakan format yang rapi.
 
                 ],
 
-                temperature=0.3,
-                max_tokens=350
+                temperature=0.5,
+                max_tokens=600
 
             )
 
