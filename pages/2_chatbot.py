@@ -121,14 +121,10 @@ section[data-testid="stSidebar"] {
 # GROQ CLIENT
 # =====================================
 try:
-    api_key = st.secrets["GROQ_API_KEY"]
-
-    st.success(f"API Key terbaca: {api_key[:10]}...")
-
-    client = Groq(api_key=api_key)
-
-except Exception as e:
-    st.error(f"Secrets Error: {e}")
+    client = Groq(
+        api_key=st.secrets["GROQ_API_KEY"]
+    )
+except Exception:
     client = None
 
 # =====================================
