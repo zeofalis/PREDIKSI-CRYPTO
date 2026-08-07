@@ -3,123 +3,34 @@ from groq import Groq
 import time
 
 # =====================================
-# AUTH
-# =====================================
-if "logged_in" not in st.session_state or not st.session_state.logged_in:
-    st.warning("Silakan login terlebih dahulu")
-    st.switch_page("Home.py")
-
-# =====================================
 # PAGE CONFIG
 # =====================================
+
 st.set_page_config(
     page_title="🤖 Crypze AI Assistant",
-    page_icon="🚀",
+    page_icon="🤖",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
 # =====================================
-# CUSTOM ULTRA-MODERN CSS
+# AUTH
 # =====================================
-st.markdown("""
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
-html, body, [class*="css"] {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-}
+if "logged_in" not in st.session_state:
+    st.session_state.logged_in = False
 
-/* BACKGROUND GRADIENT FUTURISTIK */
-.stApp {
-    background: radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 90% 90%, rgba(34, 197, 94, 0.08) 0%, transparent 40%),
-                #07111e;
-    color: #f8fafc;
-}
-
-/* SIDEBAR STYLING */
-section[data-testid="stSidebar"] {
-    background: #0b132b;
-    border-right: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.block-container {
-    padding-top: 2rem;
-    max-width: 1400px;
-}
-
-/* MAIN TITLE */
-.main-title {
-    text-align: center;
-    font-size: 46px;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    background: linear-gradient(135deg, #38bdf8 0%, #22c55e 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 0px;
-}
-
-.subtitle {
-    text-align: center;
-    color: #94a3b8;
-    font-size: 16px;
-    font-weight: 400;
-    margin-top: 5px;
-    margin-bottom: 30px;
-}
-
-/* CHAT MESSAGE CONTAINERS */
-[data-testid="stChatMessage"] {
-    background: rgba(17, 24, 39, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 16px;
-    padding: 15px;
-    backdrop-filter: blur(10px);
-    margin-bottom: 12px;
-}
-
-/* BUTTONS */
-.stButton>button {
-    width: 100%;
-    background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    padding: 12px 20px;
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
-    transition: all 0.3s ease;
-}
-
-.stButton>button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.5);
-    background: linear-gradient(135deg, #1d4ed8 0%, #0284c7 100%);
-}
-
-/* INPUTS & SELECTS */
-.stSelectbox div[data-baseweb="select"], .stTextInput input {
-    background-color: rgba(17, 24, 39, 0.8) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    color: white !important;
-    border-radius: 12px !important;
-}
-
-/* INFO BOX */
-.stInfo {
-    background-color: rgba(17, 24, 39, 0.8) !important;
-    border: 1px solid rgba(56, 189, 248, 0.2) !important;
-    border-radius: 14px !important;
-    color: #e2e8f0 !important;
-}
-</style>
-""", unsafe_allow_html=True)
+if not st.session_state.logged_in:
+    st.warning("Silakan login terlebih dahulu.")
+    st.switch_page("Home.py")
+    st.stop()
 
 # =====================================
 # GROQ CLIENT
 # =====================================
+
+client = None
+
 try:
     client = Groq(
         api_key=st.secrets["GROQ_API_KEY"]
@@ -128,312 +39,458 @@ except Exception:
     client = None
 
 # =====================================
+# CUSTOM CSS
+# =====================================
+
+st.markdown("""
+<style>
+
+.stApp{
+    background:#07111e;
+}
+
+.main-title{
+    text-align:center;
+    font-size:46px;
+    font-weight:bold;
+    color:white;
+}
+
+.subtitle{
+    text-align:center;
+    color:#9ca3af;
+    margin-bottom:25px;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+# =====================================
 # HEADER
 # =====================================
-st.markdown('<div class="main-title">🤖 Crypze AI Assistant</div>', unsafe_allow_html=True)
-st.markdown('<div class="subtitle">Asisten cerdas analisis pasar & cryptocurrency berbasis Groq Llama 3 🚀</div>', unsafe_allow_html=True)
+
+st.markdown(
+    "<div class='main-title'>🤖 CRYPZE AI Assistant</div>",
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    "<div class='subtitle'>Asisten AI Cryptocurrency Berbasis Llama 3.1</div>",
+    unsafe_allow_html=True
+)
 
 # =====================================
 # SIDEBAR
 # =====================================
-with st.sidebar:
-    st.markdown("### ⚙️ Panel Kontrol AI")
-    st.markdown("---")
-    st.success("🟢 GROQ API Connected")
 
-    st.metric("🤖 AI Model", "Llama 3.1", "Instant")
-    st.metric("⚡ Provider", "GROQ Cloud")
-    st.metric("🪙 Fokus Sesi", "Crypto & AI")
-    st.markdown("---")
+with st.sidebar:
+
+    st.title("⚙️ Panel AI")
+
+    st.success("🟢 Online")
+
+    st.metric(
+        "Model",
+        "Llama 3.1"
+    )
+
+    st.metric(
+        "Provider",
+        "Groq"
+    )
+
+    st.divider()
 
     quick_questions = [
+
         "Apa itu Bitcoin?",
         "Apa itu Ethereum?",
         "Apa itu Solana?",
-        "Apa itu NFT?",
-        "Apa itu DeFi?",
-        "Jelaskan blockchain",
-        "Jelaskan LSTM",
-        "Jelaskan GRU",
-        "Apa itu ARIMA?"
+        "Apa itu LSTM?",
+        "Apa itu GRU?",
+        "Apa itu ARIMA?",
+        "Bagaimana cara menggunakan aplikasi?",
+        "Dari mana sumber data aplikasi?",
+        "Apa metode yang digunakan?",
+        "Siapa pengembang aplikasi?"
+
     ]
 
-    selected = st.selectbox("💡 Pertanyaan Cepat", quick_questions)
+    selected = st.selectbox(
+        "Pertanyaan Cepat",
+        quick_questions
+    )
 
-    if st.button("🚀 Gunakan Pertanyaan Ini"):
+    if st.button("Gunakan"):
+
         st.session_state.quick_prompt = selected
 
-    st.markdown("---")
-    if st.button("🧹 Hapus Riwayat Chat"):
+    st.divider()
+
+    if st.button("🧹 Hapus Chat"):
+
         st.session_state.messages = []
+
         st.rerun()
 
 # =====================================
-# SESSION STATE
+# SESSION
 # =====================================
+
 if "messages" not in st.session_state:
+
     st.session_state.messages = []
 
 # =====================================
-# WELCOME MESSAGE
+# WELCOME
 # =====================================
-if len(st.session_state.messages) == 0:
-    st.info("""
-👋 **Selamat datang di Crypze AI Assistant!**
 
-Anda dapat bertanya seputar topik berikut:
-* **Aset Utama:** Bitcoin (BTC), Ethereum (ETH), Solana (SOL)
-* **Teknologi Web3:** NFT, DeFi, Blockchain
-* **Trading & Model AI:** Strategi Trading, LSTM, GRU, ARIMA
-""")
+if len(st.session_state.messages)==0:
+
+    st.info(
+"""
+👋 Selamat datang di CRYPZE AI Assistant.
+
+Anda dapat bertanya mengenai:
+
+• Cara menggunakan aplikasi
+
+• Bitcoin
+
+• Ethereum
+
+• Solana
+
+• LSTM
+
+• GRU
+
+• ARIMA
+
+• Yahoo Finance
+
+• Blockchain
+
+• NFT
+
+• DeFi
+
+• Prediksi Cryptocurrency
+"""
+    )
 
 # =====================================
-# SHOW CHAT HISTORY
+# HISTORY
 # =====================================
+
 for msg in st.session_state.messages:
-    with st.chat_message(msg["role"], avatar="🧑" if msg["role"] == "user" else "🤖"):
+
+    with st.chat_message(
+        msg["role"],
+        avatar="🧑" if msg["role"]=="user" else "🤖"
+    ):
+
         st.write(msg["content"])
 
 # =====================================
-# INPUT HANDLER
+# INPUT
 # =====================================
-prompt = st.chat_input("Tanya apa saja seputar cryptocurrency atau model AI...")
 
-# QUICK PROMPT OVERRIDE
+prompt = st.chat_input(
+    "Tulis pertanyaan..."
+)
+
 if "quick_prompt" in st.session_state:
+
     prompt = st.session_state.quick_prompt
+
     del st.session_state.quick_prompt
 
 # =====================================
-# FAQ CHATBOT
+# FAQ KNOWLEDGE BASE
 # =====================================
 
 faq = {
 
+    # ===========================
+    # APLIKASI
+    # ===========================
+
     "bagaimana cara menggunakan aplikasi":
-        """Langkah penggunaan aplikasi:
+    """Langkah penggunaan aplikasi:
 
 1. Login ke aplikasi.
-2. Masuk ke halaman Prediksi Cryptocurrency.
+2. Masuk ke menu Prediksi Cryptocurrency.
 3. Pilih aset (Bitcoin, Ethereum, atau Solana).
 4. Pilih metode (LSTM, GRU, atau ARIMA).
 5. Klik tombol Prediksi.
-6. Lihat grafik, hasil prediksi, dan evaluasi model.
+6. Lihat hasil prediksi beserta grafik.
 """,
 
     "cara menggunakan aplikasi":
-        """Langkah penggunaan aplikasi:
+    """Login → Pilih menu Prediksi → Pilih aset → Pilih metode → Klik Prediksi → Lihat hasil.""",
 
-1. Login.
-2. Pilih menu Prediksi Cryptocurrency.
-3. Pilih aset.
-4. Pilih metode AI.
-5. Jalankan prediksi.
-6. Lihat hasil.
-""",
+    "siapa pengembang aplikasi":
+    "CRYPZE AI dikembangkan sebagai aplikasi skripsi berbasis Streamlit untuk prediksi cryptocurrency menggunakan metode LSTM, GRU, dan ARIMA.",
 
-    "dari mana sumber data":
-        "Dataset historis cryptocurrency pada aplikasi berasal dari Yahoo Finance.",
-
-    "sumber data":
-        "Data historis cryptocurrency diperoleh dari Yahoo Finance.",
-
-    "siapa pengembang":
-        "CRYPZE AI dikembangkan sebagai aplikasi skripsi berbasis Streamlit menggunakan metode LSTM, GRU, dan ARIMA.",
-
-    "apa metode":
-        "Aplikasi menggunakan tiga metode prediksi yaitu LSTM, GRU, dan ARIMA.",
-
-    "metode yang digunakan":
-        "Metode yang digunakan adalah LSTM, GRU, dan ARIMA.",
-
-    "berapa aset":
-        "Aplikasi mendukung tiga aset cryptocurrency yaitu Bitcoin, Ethereum, dan Solana.",
-
-    "apa itu crypze":
-        "CRYPZE AI merupakan aplikasi prediksi cryptocurrency berbasis Artificial Intelligence menggunakan metode LSTM, GRU, dan ARIMA.",
+    "pengembang":
+    "CRYPZE AI merupakan aplikasi skripsi yang dibangun menggunakan Python dan Streamlit.",
 
     "fitur aplikasi":
-        """Fitur utama CRYPZE AI:
+    """Fitur utama:
 
+• Dashboard
 • Prediksi Cryptocurrency
 • Chatbot AI
-• Dokumentasi & Riwayat
+• Dokumentasi
+• Riwayat
 • Kemitraan
 • Tentang Kami
 """,
 
-    "halaman home":
-        "Halaman Home menampilkan informasi umum aplikasi, market dashboard, dan ringkasan fitur.",
+    "sumber data":
+    "Dataset historis cryptocurrency berasal dari Yahoo Finance.",
+
+    "dari mana sumber data":
+    "Data historis cryptocurrency diambil dari Yahoo Finance.",
+
+    "metode":
+    "Metode yang digunakan adalah LSTM, GRU, dan ARIMA.",
+
+    "berapa aset":
+    "Aplikasi mendukung Bitcoin (BTC), Ethereum (ETH), dan Solana (SOL).",
+
+    "bitcoin":
+    "Bitcoin adalah cryptocurrency pertama di dunia yang menggunakan teknologi blockchain.",
+
+    "ethereum":
+    "Ethereum merupakan blockchain yang mendukung Smart Contract dan aplikasi terdesentralisasi.",
+
+    "solana":
+    "Solana adalah blockchain berkecepatan tinggi dengan biaya transaksi rendah.",
+
+    "blockchain":
+    "Blockchain adalah buku besar digital yang terdistribusi dan diamankan dengan kriptografi.",
+
+    "nft":
+    "NFT adalah aset digital unik yang kepemilikannya dicatat pada blockchain.",
+
+    "defi":
+    "DeFi adalah layanan keuangan terdesentralisasi yang berjalan di atas blockchain.",
+
+    "lstm":
+    "LSTM adalah algoritma Deep Learning yang mampu mempelajari pola data time series jangka panjang.",
+
+    "gru":
+    "GRU adalah pengembangan dari RNN yang lebih sederhana dibanding LSTM namun tetap efektif untuk time series.",
+
+    "arima":
+    "ARIMA merupakan metode statistik untuk melakukan prediksi berdasarkan data historis time series.",
+
+    "yahoo finance":
+    "Yahoo Finance digunakan sebagai sumber data historis cryptocurrency pada aplikasi CRYPZE AI.",
+
+    "dashboard":
+    "Dashboard menampilkan informasi market cryptocurrency dan ringkasan aplikasi.",
+
+    "chatbot":
+    "Chatbot menggunakan model Llama 3.1 melalui API Groq.",
 
     "prediksi":
-        "Halaman Prediksi digunakan untuk melakukan prediksi harga Bitcoin, Ethereum, dan Solana menggunakan metode LSTM, GRU, atau ARIMA."
-
+    "Menu Prediksi digunakan untuk melakukan prediksi harga Bitcoin, Ethereum, dan Solana menggunakan metode LSTM, GRU, atau ARIMA."
 }
-
-# =====================================
-# FILTER TOPIC KEYWORDS
-# =====================================
-crypto_keywords = [
-
-    # Crypto
-    "bitcoin","btc",
-    "ethereum","eth",
-    "solana","sol",
-    "crypto","cryptocurrency",
-    "blockchain",
-    "nft",
-    "defi",
-
-    # AI
-    "lstm",
-    "gru",
-    "arima",
-    "prediksi",
-    "prediction",
-    "machine learning",
-    "artificial intelligence",
-
-    # Aplikasi
-    "crypze",
-    "aplikasi",
-    "website",
-    "web",
-    "fitur",
-    "dashboard",
-    "chatbot",
-    "login",
-    "logout",
-    "register",
-    "riwayat",
-    "history",
-    "kemitraan",
-
-    # Dataset
-    "yahoo",
-    "finance",
-    "dataset",
-    "data",
-
-    # Penggunaan
-    "cara",
-    "menggunakan",
-    "fungsi",
-    "menu",
-    "halaman",
-    "pengembang"
-
-]
 
 # =====================================
 # PROCESS CHAT
 # =====================================
+
 if prompt:
 
     if client is None:
-        st.error("API Key tidak ditemukan")
+        st.error("❌ API Key Groq belum tersedia.")
         st.stop()
 
-    lower = prompt.lower()      # <- WAJIB ADA
+    lower = prompt.lower()
 
     reply = None
 
+    # ===========================
+    # FAQ
+    # ===========================
+
     for key, value in faq.items():
+
         if key in lower:
+
             reply = value
+
             break
 
-reply = None
+    # ===========================
+    # SIMPAN USER CHAT
+    # ===========================
 
-# ===========================
-# FAQ
-# ===========================
-for key, value in faq.items():
-    if key in lower:
-        reply = value
-        break
+    st.session_state.messages.append(
+        {
+            "role":"user",
+            "content":prompt
+        }
+    )
 
-# ===========================
-# Simpan pesan user
-# ===========================
-st.session_state.messages.append(
-    {
-        "role": "user",
-        "content": prompt
-    }
-)
+    with st.chat_message(
+        "user",
+        avatar="🧑"
+    ):
+        st.write(prompt)
 
-with st.chat_message("user", avatar="🧑"):
-    st.write(prompt)
+    # ===========================
+    # GROQ
+    # ===========================
 
-# ===========================
-# Jika FAQ tidak menemukan jawaban,
-# baru gunakan GROQ
-# ===========================
-if reply is None:
+    if reply is None:
 
-    try:
+        try:
 
-        completion = client.chat.completions.create(
+            completion = client.chat.completions.create(
 
-            model="llama-3.1-8b-instant",
+                model="llama-3.1-8b-instant",
 
-            messages=[
-                {
-                    "role":"system",
-                    "content":"""
-Kamu adalah Crypze AI Assistant.
+                messages=[
 
-Kamu adalah chatbot resmi aplikasi CRYPZE AI.
+                    {
+                        "role":"system",
 
-Jawab hanya mengenai:
+                        "content":"""
+Kamu adalah CRYPZE AI Assistant.
 
-• penggunaan aplikasi
-• dashboard
-• login
-• register
-• prediksi cryptocurrency
-• Bitcoin
-• Ethereum
-• Solana
+CRYPZE AI adalah aplikasi berbasis Streamlit untuk melakukan prediksi harga cryptocurrency.
+
+Fitur aplikasi:
+
+1. Dashboard
+2. Prediksi Cryptocurrency
+3. Chatbot AI
+4. Dokumentasi
+5. Riwayat Prediksi
+6. Kemitraan
+7. Tentang Kami
+
+Cryptocurrency yang didukung:
+
+• Bitcoin (BTC)
+• Ethereum (ETH)
+• Solana (SOL)
+
+Metode:
+
 • LSTM
 • GRU
 • ARIMA
+
+Dataset:
+
 • Yahoo Finance
-• Blockchain
-• NFT
-• DeFi
 
-Jika pertanyaan di luar topik tersebut,
-jawab dengan sopan bahwa pertanyaan berada di luar ruang lingkup aplikasi.
+Tugasmu:
+
+1. Menjelaskan penggunaan aplikasi.
+2. Menjelaskan fitur aplikasi.
+3. Menjelaskan cryptocurrency.
+4. Menjelaskan LSTM, GRU, ARIMA.
+5. Menjelaskan blockchain.
+6. Menjelaskan NFT.
+7. Menjelaskan DeFi.
+8. Menjawab pertanyaan mengenai aplikasi.
+
+Jika pertanyaan di luar ruang lingkup aplikasi,
+jawablah:
+
+"Maaf, saya hanya dapat membantu mengenai aplikasi CRYPZE AI, cryptocurrency, blockchain, serta metode prediksi LSTM, GRU, dan ARIMA."
+
+Jawablah menggunakan Bahasa Indonesia.
+
+Jawaban maksimal 180 kata.
+
+Gunakan format yang rapi.
 """
-                },
-                {
-                    "role":"user",
-                    "content":prompt
-                }
-            ],
+                    },
 
-            temperature=0.3,
-            max_tokens=350
+                    {
+                        "role":"user",
+                        "content":prompt
+                    }
 
-        )
+                ],
 
-        reply = completion.choices[0].message.content
+                temperature=0.3,
+                max_tokens=350
 
-    except Exception:
+            )
 
-        reply = "⚠️ Maaf, server AI sedang tidak dapat dihubungi."
+            reply = completion.choices[0].message.content
 
-    
+        except Exception:
+
+            reply = "⚠️ Maaf, server AI Groq sedang tidak dapat dihubungi."
+
+    # =====================================
+    # STREAM EFFECT
+    # =====================================
+
+    with st.chat_message("assistant", avatar="🤖"):
+
+        placeholder = st.empty()
+
+        full_text = ""
+
+        for word in reply.split():
+
+            full_text += word + " "
+
+            time.sleep(0.015)
+
+            placeholder.markdown(full_text + "▌")
+
+        placeholder.markdown(full_text)
+
+    # =====================================
+    # SIMPAN JAWABAN AI
+    # =====================================
+
+    st.session_state.messages.append(
+        {
+            "role": "assistant",
+            "content": reply
+        }
+    )
 
 # =====================================
 # FOOTER
 # =====================================
-st.write("")
+
 st.divider()
-st.markdown("""
-<p style='text-align: center; color: #64748b; font-size: 13px;'>
-    🚀 Crypze AI Assistant — Powered by GROQ, Streamlit, & Llama 3.1
-</p>
-""", unsafe_allow_html=True)
+
+st.markdown(
+    """
+<div style="
+text-align:center;
+padding:15px;
+color:#94a3b8;
+font-size:14px;
+">
+
+<b>🤖 CRYPZE AI Assistant</b><br>
+
+Powered by
+<b>Groq</b> •
+<b>Llama 3.1</b> •
+<b>Streamlit</b>
+
+<br><br>
+
+© 2026 CRYPZE AI
+
+</div>
+""",
+unsafe_allow_html=True
+)
