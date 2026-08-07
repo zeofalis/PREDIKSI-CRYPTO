@@ -388,6 +388,396 @@ Ketiga metode tersebut dapat dipilih oleh pengguna untuk melakukan prediksi harg
 
 "model":
 """Model yang tersedia pada aplikasi ini adalah LSTM, GRU, dan ARIMA.""",
+
+"apa metode yang digunakan":
+"""Aplikasi CRYPZE AI menggunakan tiga metode prediksi, yaitu LSTM (Long Short-Term Memory), GRU (Gated Recurrent Unit), dan ARIMA (AutoRegressive Integrated Moving Average). Ketiga metode tersebut dapat dipilih oleh pengguna untuk membandingkan hasil prediksi harga cryptocurrency.""",
+
+"ada berapa metode":
+"""Aplikasi menyediakan tiga metode prediksi, yaitu LSTM, GRU, dan ARIMA.""",
+
+"metode prediksi":
+"""Metode prediksi yang tersedia pada aplikasi ini adalah LSTM, GRU, dan ARIMA.""",
+
+"algoritma":
+"""Algoritma yang digunakan pada aplikasi ini adalah LSTM, GRU, dan ARIMA untuk melakukan prediksi harga cryptocurrency.""",
+
+"cara menggunakan aplikasi":
+"""Langkah menggunakan aplikasi adalah:
+1. Login ke sistem.
+2. Masuk ke menu Prediksi Cryptocurrency.
+3. Pilih aset cryptocurrency.
+4. Pilih metode prediksi.
+5. Tekan tombol Prediksi.
+6. Lihat hasil prediksi dan grafik visualisasi.""",
+
+"cara melakukan prediksi":
+"""Untuk melakukan prediksi, buka menu Prediksi Cryptocurrency, pilih aset cryptocurrency, pilih metode prediksi, kemudian tekan tombol Prediksi. Sistem akan memproses data dan menampilkan hasil prediksi beserta grafik visualisasi.""",
+
+"cara membaca grafik":
+"""Grafik digunakan untuk menampilkan perubahan harga historis cryptocurrency serta hasil prediksi yang dihasilkan oleh model AI sehingga pengguna dapat membandingkan data aktual dan data prediksi.""",
+
+"fungsi dashboard":
+"""Dashboard berfungsi menampilkan informasi utama aplikasi seperti ringkasan cryptocurrency, navigasi menu, serta informasi umum mengenai aplikasi CRYPZE AI.""",
+
+"fungsi chatbot":
+"""Chatbot AI berfungsi membantu pengguna memperoleh informasi mengenai aplikasi, cryptocurrency, blockchain, serta metode prediksi seperti LSTM, GRU, dan ARIMA.""",
+
+"fungsi dokumentasi":
+"""Menu Dokumentasi digunakan untuk menampilkan dokumentasi penggunaan aplikasi serta informasi pendukung lainnya.""",
+
+"fungsi riwayat":
+"""Menu Riwayat digunakan untuk menyimpan hasil prediksi yang telah dilakukan sehingga pengguna dapat melihat kembali hasil prediksi sebelumnya.""",
+
+"sumber data":
+"""Data historis cryptocurrency pada aplikasi ini berasal dari Yahoo Finance yang digunakan sebagai dataset dalam proses prediksi.""",
+
+"dataset":
+"""Dataset yang digunakan berasal dari Yahoo Finance berupa data historis cryptocurrency yang terdiri dari harga Open, High, Low, Close, dan Volume.""",
+
+"yahoo finance":
+"""Yahoo Finance merupakan penyedia data historis pasar keuangan yang digunakan sebagai sumber dataset pada aplikasi CRYPZE AI.""",
+
+"pengembang":
+"""CRYPZE AI dikembangkan sebagai aplikasi skripsi berbasis web menggunakan Streamlit untuk melakukan prediksi harga cryptocurrency menggunakan metode LSTM, GRU, dan ARIMA.""",
+
+"framework":
+"""Framework utama yang digunakan pada aplikasi ini adalah Streamlit sebagai antarmuka web berbasis Python.""",
+
+"streamlit":
+"""Streamlit merupakan framework Python yang digunakan untuk membangun aplikasi web interaktif secara cepat tanpa memerlukan pengembangan frontend yang kompleks.""",
+
+"python":
+"""Python digunakan sebagai bahasa pemrograman utama karena memiliki banyak pustaka untuk machine learning, data science, dan pengembangan aplikasi berbasis AI.""",
+
+"lstm":
+"""LSTM (Long Short-Term Memory) merupakan algoritma Deep Learning yang mampu mempelajari pola data time series dan digunakan untuk prediksi harga cryptocurrency.""",
+
+"gru":
+"""GRU (Gated Recurrent Unit) merupakan pengembangan dari Recurrent Neural Network yang memiliki struktur lebih sederhana dibanding LSTM namun tetap efektif untuk data time series.""",
+
+"arima":
+"""ARIMA (AutoRegressive Integrated Moving Average) merupakan metode statistik yang digunakan untuk melakukan prediksi berdasarkan pola data historis time series.""",
+
+"bitcoin":
+"""Bitcoin (BTC) merupakan cryptocurrency pertama di dunia yang diperkenalkan oleh Satoshi Nakamoto dan menggunakan teknologi blockchain sebagai dasar sistemnya.""",
+
+"ethereum":
+"""Ethereum (ETH) merupakan platform blockchain yang mendukung Smart Contract dan pengembangan aplikasi terdesentralisasi (DApps).""",
+
+"solana":
+"""Solana (SOL) merupakan blockchain berkecepatan tinggi yang dirancang untuk mendukung transaksi dengan biaya rendah dan performa tinggi.""",
+
+"cardano":
+"""Cardano (ADA) merupakan blockchain berbasis Proof of Stake yang dikembangkan oleh Charles Hoskinson. Namun, pada aplikasi CRYPZE AI saat ini fitur prediksi hanya tersedia untuk Bitcoin, Ethereum, dan Solana.""",
+
+"ada":
+"""ADA merupakan aset cryptocurrency asli dari jaringan blockchain Cardano. Saat ini aplikasi CRYPZE AI hanya menyediakan prediksi untuk Bitcoin (BTC), Ethereum (ETH), dan Solana (SOL).""",
+
+"blockchain":
+"""Blockchain merupakan teknologi penyimpanan data terdistribusi yang bersifat transparan, aman, dan sulit dimanipulasi sehingga banyak digunakan pada cryptocurrency.""",
+
+"nft":
+"""NFT (Non-Fungible Token) merupakan aset digital unik yang kepemilikannya dicatat menggunakan teknologi blockchain.""",
+
+"defi":
+"""DeFi (Decentralized Finance) merupakan layanan keuangan berbasis blockchain yang memungkinkan transaksi dilakukan tanpa perantara seperti bank.""",
+
+"wallet":
+"""Wallet cryptocurrency merupakan dompet digital yang digunakan untuk menyimpan, menerima, dan mengirim aset cryptocurrency.""",
+
+"trading":
+"""Trading cryptocurrency merupakan aktivitas jual beli aset cryptocurrency dengan tujuan memperoleh keuntungan dari perubahan harga pasar.""",
+
+"smart contract":
+"""Smart Contract merupakan program otomatis pada blockchain yang akan dijalankan ketika syarat tertentu telah terpenuhi.""",
+
+"proof of work":
+"""Proof of Work merupakan mekanisme konsensus blockchain yang menggunakan proses komputasi untuk memvalidasi transaksi.""",
+
+"proof of stake":
+"""Proof of Stake merupakan mekanisme konsensus blockchain yang memilih validator berdasarkan jumlah aset yang dimiliki atau di-staking.""",
+
+"kelebihan aplikasi":
+"""Kelebihan aplikasi CRYPZE AI adalah mampu melakukan prediksi harga cryptocurrency menggunakan tiga metode berbeda, menampilkan visualisasi hasil prediksi, menyediakan dokumentasi, riwayat prediksi, serta chatbot AI.""",
+
+"kekurangan aplikasi":
+"""Versi aplikasi saat ini hanya mendukung prediksi untuk Bitcoin, Ethereum, dan Solana serta belum menggunakan data pasar secara real-time.""",
+
+"tujuan aplikasi":
+"""Aplikasi ini bertujuan membantu pengguna melakukan prediksi harga cryptocurrency menggunakan metode AI serta memberikan informasi mengenai cryptocurrency melalui chatbot.""",
+
+"pengembangan selanjutnya":
+"""Pengembangan selanjutnya dapat dilakukan dengan menambahkan cryptocurrency baru, integrasi data real-time, metode AI tambahan, serta peningkatan kemampuan chatbot.""",
+
+"mengapa memilih lstm":
+"""Metode LSTM dipilih karena mampu mempelajari pola data time series dalam jangka panjang sehingga sangat cocok digunakan untuk prediksi harga cryptocurrency yang memiliki pola historis.""",
+
+"mengapa memilih gru":
+"""GRU dipilih karena memiliki struktur yang lebih sederhana dibandingkan LSTM sehingga proses pelatihan model lebih cepat namun tetap mampu menghasilkan prediksi yang baik.""",
+
+"mengapa menggunakan arima":
+"""ARIMA digunakan sebagai metode statistik pembanding terhadap metode Deep Learning sehingga hasil prediksi dapat dibandingkan berdasarkan pendekatan yang berbeda.""",
+
+"mengapa menggunakan streamlit":
+"""Streamlit dipilih karena memudahkan pengembangan aplikasi web berbasis Python, memiliki antarmuka sederhana, serta mudah diintegrasikan dengan model Machine Learning.""",
+
+"mengapa menggunakan python":
+"""Python dipilih karena memiliki banyak pustaka Machine Learning seperti TensorFlow, Scikit-Learn, NumPy, Pandas, dan Plotly yang mendukung pengembangan sistem prediksi.""",
+
+"mengapa yahoo finance":
+"""Yahoo Finance dipilih karena menyediakan data historis cryptocurrency yang lengkap, mudah diakses, dan sering digunakan sebagai sumber data penelitian.""",
+
+"mengapa memilih bitcoin":
+"""Bitcoin dipilih karena merupakan cryptocurrency dengan kapitalisasi pasar terbesar serta memiliki data historis yang lengkap sehingga cocok digunakan sebagai objek penelitian.""",
+
+"mengapa memilih ethereum":
+"""Ethereum dipilih karena merupakan cryptocurrency terbesar kedua yang memiliki ekosistem blockchain yang luas dan banyak digunakan dalam penelitian.""",
+
+"mengapa memilih solana":
+"""Solana dipilih karena memiliki performa transaksi tinggi dan menjadi salah satu cryptocurrency dengan perkembangan yang pesat.""",
+
+"mengapa tidak menggunakan cardano":
+"""Pada versi aplikasi ini, prediksi difokuskan pada Bitcoin, Ethereum, dan Solana. Cardano dapat ditambahkan sebagai pengembangan pada penelitian berikutnya.""",
+
+"mengapa tidak menggunakan cnn":
+"""CNN lebih umum digunakan pada data citra. Penelitian ini menggunakan data time series sehingga metode LSTM, GRU, dan ARIMA dinilai lebih sesuai.""",
+
+"mengapa tidak menggunakan random forest":
+"""Random Forest lebih sesuai untuk data klasifikasi maupun regresi umum, sedangkan penelitian ini menggunakan data time series sehingga dipilih metode yang lebih sesuai.""",
+
+"mengapa tidak menggunakan xgboost":
+"""XGBoost merupakan algoritma machine learning yang sangat baik untuk data tabular, namun penelitian ini berfokus pada metode time series sehingga digunakan LSTM, GRU, dan ARIMA.""",
+
+"apa itu machine learning":
+"""Machine Learning merupakan cabang kecerdasan buatan yang memungkinkan komputer mempelajari pola dari data tanpa diprogram secara eksplisit.""",
+
+"apa itu deep learning":
+"""Deep Learning merupakan bagian dari Machine Learning yang menggunakan jaringan saraf tiruan dengan banyak lapisan untuk mempelajari pola data yang kompleks.""",
+
+"apa itu artificial intelligence":
+"""Artificial Intelligence atau AI merupakan teknologi yang memungkinkan komputer meniru kemampuan berpikir dan mengambil keputusan seperti manusia.""",
+
+"apa itu time series":
+"""Time Series merupakan kumpulan data yang tersusun berdasarkan urutan waktu sehingga dapat digunakan untuk menganalisis pola dan melakukan prediksi.""",
+
+"apa itu epoch":
+"""Epoch merupakan satu kali proses pelatihan model menggunakan seluruh data training.""",
+
+"apa itu batch":
+"""Batch merupakan jumlah data yang diproses dalam satu iterasi selama proses pelatihan model.""",
+
+"apa itu loss":
+"""Loss merupakan nilai kesalahan model selama proses pelatihan. Semakin kecil nilai loss maka performa model semakin baik.""",
+
+"apa itu optimizer":
+"""Optimizer merupakan algoritma yang digunakan untuk memperbarui bobot jaringan saraf agar model memperoleh hasil prediksi yang lebih baik.""",
+
+"apa itu adam":
+"""Adam merupakan salah satu optimizer yang banyak digunakan pada Deep Learning karena mampu mempercepat proses pelatihan model.""",
+
+"apa itu scaler":
+"""Scaler digunakan untuk melakukan normalisasi data sehingga nilai setiap fitur berada pada rentang yang sama sebelum diproses oleh model.""",
+
+"apa itu minmax scaler":
+"""MinMaxScaler merupakan metode normalisasi yang mengubah nilai data ke rentang tertentu, umumnya antara 0 hingga 1.""",
+
+"apa itu normalisasi":
+"""Normalisasi merupakan proses mengubah skala data agar setiap fitur memiliki rentang nilai yang seragam sehingga proses pelatihan model menjadi lebih stabil.""",
+
+"apa itu mae":
+"""MAE (Mean Absolute Error) merupakan metrik evaluasi yang mengukur rata-rata selisih absolut antara nilai aktual dan nilai prediksi.""",
+
+"apa itu rmse":
+"""RMSE (Root Mean Square Error) merupakan metrik evaluasi yang mengukur besarnya kesalahan prediksi dengan memberikan penalti lebih besar terhadap kesalahan yang tinggi.""",
+
+"apa itu r2":
+"""R² Score digunakan untuk mengukur seberapa baik model mampu menjelaskan variasi data. Semakin mendekati 1, semakin baik performa model.""",
+
+"apa itu overfitting":
+"""Overfitting merupakan kondisi ketika model terlalu menghafal data training sehingga performanya menurun saat digunakan pada data baru.""",
+
+"apa itu underfitting":
+"""Underfitting terjadi ketika model belum mampu mempelajari pola data dengan baik sehingga menghasilkan prediksi yang kurang akurat.""",
+
+"apa tujuan penelitian":
+"""Tujuan penelitian ini adalah merancang dan membangun aplikasi berbasis web yang mampu melakukan prediksi harga cryptocurrency menggunakan metode LSTM, GRU, dan ARIMA serta menyajikan hasil prediksi dalam bentuk visualisasi yang mudah dipahami pengguna.""",
+
+"apa manfaat penelitian":
+"""Penelitian ini diharapkan dapat membantu pengguna memperoleh gambaran tren harga cryptocurrency serta menjadi referensi dalam pengembangan sistem prediksi berbasis Artificial Intelligence.""",
+
+"apa kontribusi penelitian":
+"""Kontribusi penelitian ini adalah menghasilkan aplikasi prediksi cryptocurrency berbasis web yang menggabungkan tiga metode prediksi, yaitu LSTM, GRU, dan ARIMA sehingga pengguna dapat membandingkan performa masing-masing metode.""",
+
+"mengapa membuat aplikasi ini":
+"""Aplikasi ini dibuat untuk membantu pengguna melakukan prediksi harga cryptocurrency secara lebih mudah melalui antarmuka web yang sederhana serta memanfaatkan metode Artificial Intelligence.""",
+
+"siapa target pengguna":
+"""Target pengguna aplikasi ini adalah mahasiswa, peneliti, investor pemula, maupun masyarakat yang ingin mempelajari prediksi harga cryptocurrency.""",
+
+"apa keunggulan aplikasi":
+"""Keunggulan aplikasi ini adalah menyediakan tiga metode prediksi dalam satu aplikasi, menampilkan visualisasi grafik, menyimpan riwayat prediksi, serta dilengkapi chatbot AI sebagai media informasi.""",
+
+"apa kelemahan aplikasi":
+"""Kelemahan aplikasi saat ini adalah hanya mendukung prediksi Bitcoin, Ethereum, dan Solana serta belum menggunakan data pasar secara real-time.""",
+
+"bagaimana alur aplikasi":
+"""Alur aplikasi dimulai dari login pengguna, memilih menu prediksi, memilih aset cryptocurrency, memilih metode prediksi, menjalankan proses prediksi, kemudian sistem menampilkan grafik, evaluasi model, dan hasil prediksi.""",
+
+"bagaimana proses prediksi":
+"""Proses prediksi dimulai dari pengambilan dataset historis, preprocessing data, pemilihan metode prediksi, pelatihan model, evaluasi model, kemudian menghasilkan prediksi harga cryptocurrency.""",
+
+"apa preprocessing":
+"""Preprocessing merupakan tahap awal pengolahan data sebelum diproses oleh model, seperti pembersihan data, normalisasi, dan penyusunan data time series.""",
+
+"apa training":
+"""Training merupakan proses pembelajaran model menggunakan data historis sehingga model mampu mengenali pola yang terdapat pada data.""",
+
+"apa testing":
+"""Testing merupakan proses pengujian model menggunakan data yang belum pernah dipelajari sebelumnya untuk mengetahui kemampuan prediksi model.""",
+
+"apa evaluasi model":
+"""Evaluasi model dilakukan menggunakan metrik seperti MAE, RMSE, dan R² Score untuk mengetahui tingkat akurasi hasil prediksi.""",
+
+"apa visualisasi":
+"""Visualisasi digunakan untuk menampilkan data historis dan hasil prediksi dalam bentuk grafik sehingga lebih mudah dipahami oleh pengguna.""",
+
+"mengapa menggunakan chatbot":
+"""Chatbot ditambahkan untuk membantu pengguna memperoleh informasi mengenai aplikasi, cryptocurrency, blockchain, serta metode prediksi tanpa harus membuka dokumentasi secara manual.""",
+
+"mengapa menggunakan groq":
+"""Groq digunakan sebagai penyedia layanan Large Language Model (LLM) sehingga chatbot dapat memberikan jawaban yang cepat dan relevan terhadap pertanyaan pengguna.""",
+
+"apa itu groq":
+"""Groq merupakan penyedia layanan inferensi AI yang dirancang untuk menjalankan Large Language Model dengan kecepatan tinggi.""",
+
+"apa itu llama":
+"""Llama merupakan Large Language Model yang dikembangkan oleh Meta dan digunakan sebagai model bahasa pada chatbot CRYPZE AI.""",
+
+"mengapa menggunakan llama":
+"""Model Llama dipilih karena mampu menghasilkan jawaban yang cepat, relevan, dan mudah diintegrasikan dengan aplikasi berbasis Python.""",
+
+"bagaimana chatbot bekerja":
+"""Chatbot bekerja dengan memeriksa FAQ terlebih dahulu. Jika jawaban tidak ditemukan, pertanyaan akan diteruskan ke model AI Groq Llama untuk menghasilkan jawaban yang relevan.""",
+
+"mengapa menggunakan faq":
+"""FAQ digunakan agar pertanyaan yang sering muncul dapat dijawab secara instan tanpa perlu mengakses model AI sehingga respon menjadi lebih cepat dan konsisten.""",
+
+"bagaimana pengembangan selanjutnya":
+"""Pengembangan selanjutnya dapat dilakukan dengan menambahkan cryptocurrency baru, integrasi data real-time, metode prediksi tambahan, peningkatan akurasi model, serta pengembangan chatbot yang lebih cerdas.""",
+
+"mengapa aplikasi berbasis web":
+"""Aplikasi berbasis web dipilih karena dapat diakses dari berbagai perangkat tanpa memerlukan proses instalasi tambahan.""",
+
+"apa manfaat streamlit":
+"""Streamlit mempermudah pengembangan aplikasi Machine Learning karena mampu menampilkan visualisasi, grafik, dan antarmuka interaktif hanya dengan menggunakan Python.""",
+
+"apa itu plotly":
+"""Plotly merupakan pustaka visualisasi data yang digunakan untuk menampilkan grafik interaktif pada aplikasi.""",
+
+"apa itu tensorflow":
+"""TensorFlow merupakan framework Deep Learning yang digunakan untuk membangun dan melatih model LSTM maupun GRU.""",
+
+"apa itu scikit learn":
+"""Scikit-Learn merupakan pustaka Machine Learning Python yang digunakan untuk preprocessing data, normalisasi, serta evaluasi model.""",
+
+"apa itu pandas":
+"""Pandas merupakan pustaka Python yang digunakan untuk membaca, mengolah, dan memanipulasi dataset.""",
+
+"apa itu numpy":
+"""NumPy merupakan pustaka Python yang digunakan untuk melakukan komputasi numerik serta pengolahan array dalam proses Machine Learning.""",
+
+"apakah aplikasi ini akurat":
+"""Akurasi aplikasi bergantung pada metode prediksi yang dipilih serta kualitas data historis yang digunakan. Untuk mengukur performa model, aplikasi menggunakan metrik evaluasi seperti MAE, RMSE, dan R² Score.""",
+
+"apakah hasil prediksi selalu benar":
+"""Tidak. Hasil prediksi merupakan estimasi berdasarkan data historis sehingga tidak dapat menjamin kondisi pasar di masa depan yang dipengaruhi banyak faktor.""",
+
+"mengapa hasil prediksi bisa berbeda":
+"""Setiap metode memiliki cara kerja yang berbeda dalam mempelajari pola data sehingga hasil prediksi yang dihasilkan juga dapat berbeda.""",
+
+"mengapa menggunakan tiga metode":
+"""Penggunaan tiga metode bertujuan agar pengguna dapat membandingkan performa masing-masing metode dan mengetahui metode yang memberikan hasil terbaik pada dataset tertentu.""",
+
+"metode mana yang paling baik":
+"""Tidak ada satu metode yang selalu paling baik. Performa LSTM, GRU, dan ARIMA bergantung pada karakteristik data yang digunakan sehingga perlu dibandingkan menggunakan metrik evaluasi.""",
+
+"berapa cryptocurrency yang didukung":
+"""Saat ini aplikasi mendukung prediksi untuk tiga cryptocurrency, yaitu Bitcoin (BTC), Ethereum (ETH), dan Solana (SOL).""",
+
+"apakah bisa prediksi cardano":
+"""Saat ini aplikasi belum menyediakan fitur prediksi untuk Cardano (ADA). Cardano hanya dapat dijelaskan sebagai informasi umum melalui chatbot.""",
+
+"apakah bisa prediksi xrp":
+"""Saat ini aplikasi belum mendukung prediksi XRP. Pengembangan tersebut dapat ditambahkan pada versi berikutnya.""",
+
+"apakah bisa prediksi dogecoin":
+"""Saat ini aplikasi belum mendukung prediksi Dogecoin. Pengguna hanya dapat memperoleh informasi umum mengenai cryptocurrency tersebut.""",
+
+"apakah aplikasi realtime":
+"""Tidak. Prediksi dilakukan menggunakan dataset historis yang telah disiapkan sehingga belum menggunakan data pasar secara real-time.""",
+
+"apakah chatbot menggunakan ai":
+"""Ya. Chatbot menggunakan Large Language Model (LLM) melalui layanan Groq dengan model Llama sehingga mampu menjawab pertanyaan pengguna secara otomatis.""",
+
+"apakah chatbot selalu benar":
+"""Chatbot dirancang untuk memberikan jawaban berdasarkan pengetahuan yang dimiliki. Namun, pengguna tetap disarankan melakukan verifikasi terhadap informasi yang bersifat kritis atau terus berubah.""",
+
+"bagaimana jika internet mati":
+"""Apabila koneksi internet terputus, fitur chatbot yang menggunakan layanan Groq tidak dapat digunakan. Namun fitur lain yang tidak memerlukan layanan eksternal tetap dapat berjalan sesuai implementasi aplikasi.""",
+
+"apakah chatbot bisa menjawab semua pertanyaan":
+"""Tidak. Chatbot difokuskan untuk menjawab pertanyaan mengenai aplikasi CRYPZE AI, cryptocurrency, blockchain, serta metode prediksi seperti LSTM, GRU, dan ARIMA.""",
+
+"berapa hari prediksi":
+"""Pada implementasi aplikasi ini, model menghasilkan prediksi untuk beberapa hari ke depan sesuai rancangan penelitian yang digunakan.""",
+
+"apa itu cryptocurrency":
+"""Cryptocurrency merupakan aset digital yang menggunakan teknologi blockchain sebagai sistem pencatatan transaksi sehingga dapat digunakan tanpa perantara.""",
+
+"apa itu btc":
+"""BTC adalah singkatan dari Bitcoin, yaitu cryptocurrency pertama di dunia yang diperkenalkan oleh Satoshi Nakamoto.""",
+
+"apa itu eth":
+"""ETH merupakan singkatan dari Ethereum, yaitu cryptocurrency yang mendukung Smart Contract dan aplikasi terdesentralisasi.""",
+
+"apa itu sol":
+"""SOL merupakan singkatan dari Solana, yaitu cryptocurrency yang berjalan pada jaringan blockchain Solana.""",
+
+"apa itu ada":
+"""ADA merupakan cryptocurrency asli dari jaringan Cardano. Namun, aplikasi CRYPZE AI saat ini belum menyediakan fitur prediksi untuk ADA.""",
+
+"apa itu altcoin":
+"""Altcoin merupakan istilah untuk seluruh cryptocurrency selain Bitcoin.""",
+
+"apa itu stablecoin":
+"""Stablecoin merupakan cryptocurrency yang nilainya dipatok terhadap aset tertentu seperti mata uang dolar Amerika Serikat.""",
+
+"apa itu market cap":
+"""Market Capitalization merupakan total nilai pasar suatu cryptocurrency yang diperoleh dari harga aset dikalikan jumlah koin yang beredar.""",
+
+"apa itu volume":
+"""Volume perdagangan menunjukkan jumlah transaksi cryptocurrency yang terjadi dalam periode tertentu.""",
+
+"apa itu candlestick":
+"""Candlestick merupakan bentuk visualisasi harga yang menampilkan informasi Open, High, Low, dan Close dalam satu periode waktu.""",
+
+"apa itu open high low close":
+"""Open adalah harga pembukaan, High adalah harga tertinggi, Low adalah harga terendah, dan Close adalah harga penutupan pada periode tertentu.""",
+
+"mengapa menggunakan data historis":
+"""Data historis digunakan karena mengandung pola pergerakan harga yang dapat dipelajari oleh model AI untuk menghasilkan prediksi.""",
+
+"apakah aplikasi gratis":
+"""Aplikasi ini dikembangkan sebagai media penelitian dan pembelajaran sehingga dapat digunakan sesuai tujuan penelitian yang telah ditetapkan.""",
+
+"bagaimana cara meningkatkan akurasi":
+"""Akurasi dapat ditingkatkan dengan menggunakan dataset yang lebih banyak, melakukan tuning hyperparameter, menambahkan fitur baru, serta mencoba metode prediksi lain.""",
+
+"apa perbedaan lstm dan gru":
+"""LSTM memiliki struktur yang lebih kompleks dengan tiga gerbang utama sehingga mampu mengingat informasi dalam jangka panjang. GRU memiliki struktur lebih sederhana sehingga proses pelatihannya lebih cepat namun tetap memiliki performa yang baik pada data time series.""",
+
+"apa perbedaan arima dan lstm":
+"""ARIMA merupakan metode statistik berbasis time series, sedangkan LSTM merupakan metode Deep Learning yang mampu mempelajari pola data yang lebih kompleks.""",
 }
 
 # =====================================
