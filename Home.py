@@ -8,7 +8,7 @@ from auth import login_user, register_user
 # ==========================
 st.set_page_config(
     page_title="CRYPZE AI",
-    page_icon="Images/crypze_logo.png",
+    page_icon="images/crypze_logo.png",
     layout="wide",
     initial_sidebar_state="auto",
 )
@@ -64,13 +64,12 @@ with st.sidebar:
 
     if st.button(
         "🚪 Logout",
-        use_container_width=True
+        use_container_width=True,
+        key="sidebar_logout"
     ):
-
         st.session_state.logged_in = False
         st.session_state.username = ""
-
-        st.switch_page("Home.py")
+        st.rerun()
 
     st.caption("Version 3.0 • Universitas Gunadarma")
 
@@ -294,13 +293,10 @@ with center:
                 else:
                     st.error("Username sudah digunakan.")
     else:
-        st.success(f"👋 Selamat datang kembali, **{st.session_state.username}**!")
-        col1, col2, col3 = st.columns([2, 3, 2])
-        with col2:
-            if st.button("🚪 Logout", use_container_width=True):
-                st.session_state.logged_in = False
-                st.session_state.username = ""
-                st.rerun()
+        st.success(
+            f"👋 Selamat datang kembali, **{st.session_state.username}**!"
+    )                
+    
 
 st.divider()
 
