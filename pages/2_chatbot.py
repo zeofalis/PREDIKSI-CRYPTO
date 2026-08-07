@@ -329,11 +329,19 @@ crypto_keywords = [
 # PROCESS CHAT
 # =====================================
 if prompt:
+
     if client is None:
-        st.error("❌ API Key Groq belum dikonfigurasi dengan benar di `st.secrets`.")
+        st.error("API Key tidak ditemukan")
         st.stop()
 
-    lower = prompt.lower()
+    lower = prompt.lower()      # <- WAJIB ADA
+
+    reply = None
+
+    for key, value in faq.items():
+        if key in lower:
+            reply = value
+            break
 
 reply = None
 
