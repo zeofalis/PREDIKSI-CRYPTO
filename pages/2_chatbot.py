@@ -90,25 +90,25 @@ st.markdown(
 # SIDEBAR
 # =====================================
 
+# ==========================
+# SIDEBAR (TANPA LOGO CRYPZE)
+# ==========================
 with st.sidebar:
-
-    st.image("Images/crypze_logo.png")
-
-    st.title("⚙️ Panel AI")
-
-    st.success("🟢 Online")
-
-    st.metric(
-        "Model",
-        "Llama 3.1"
-    )
-
-    st.metric(
-        "Provider",
-        "Groq"
-    )
-
+    st.success("🟢 System Online")
     st.divider()
+
+    st.metric("🪙 Crypto", "3 Aset")
+    st.metric("🤖 AI Model", "3 Metode")
+    st.metric("⚡ Status", "Realtime")
+    st.divider()
+
+    st.write("### 📂 Menu Utama")
+    st.page_link("Home.py", label="🏠 Home Dashboard")
+    st.page_link("pages/1_Prediksi_Bitcoin.py", label="📈 AI Prediction")
+    st.page_link("pages/chatbot.py", label="🤖 AI Assistant")
+    st.divider()
+
+    st.caption("Version 3.0 • Universitas Gunadarma")
 
     st.markdown("### 📂 Menu Utama")
     st.page_link("Home.py", label="🏠 Home")
