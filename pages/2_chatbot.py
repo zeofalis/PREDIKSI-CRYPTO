@@ -1,6 +1,7 @@
 import streamlit as st
 from groq import Groq
 import time
+import re
 
 # =====================================
 # PAGE CONFIG
@@ -806,7 +807,7 @@ if prompt:
             key.replace(" aplikasi", "")
         ]
 
-        if any(k in lower for k in keywords):
+        if any(re.search(rf"\b{re.escape(k)}\b", lower) for k in keywords):
             reply = value
             break
 
